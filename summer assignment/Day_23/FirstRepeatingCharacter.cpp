@@ -13,7 +13,7 @@ int main(){
         m[s]++;
     }
     for(auto &val : m){
-        if(val.second == 2){
+        if(val.second >= 2){
             cout<<val.first<<" "<<endl;
             break;
         }

@@ -1,34 +1,40 @@
 #include <bits/stdc++.h>
 using namespace std;
 void longestword(string &str)
-{    string temp;
+{
     string longstr;
-    int count = 0;
-    int size = 0;
-    for (int i = 0; i < str.size(); i++)
+    vector<string> vec;
+    int j = 0;
+    while (j < str.size())
     {
-       
-        if (str[i] == ' ')
+        string c;
+        while (str[j] != ' ' && j < str.size())
         {
-            count++;
+            c.push_back(str[j]);
+            j++;
         }
-        else
+        if (!c.empty())
         {
-            temp += str[i];
-            
+            vec.push_back(c);
         }
-            size = temp.size();
-            longstr = temp;
-            if (size > 0 && temp.size() > longstr.size())
-            {
-                longstr = temp;
-            }
+        j++;
+    }
+    int max = INT_MIN;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        int n1;
+        n1 = vec[i].size();
+        if (max < n1)
+        {
+            max = n1;
+            longstr = vec[i];
+        }
     }
 
-    cout<<longstr<<endl;
+    cout << longstr << endl;
 }
 int main()
 {
-    string str = "hello there is yash";
+    string str = "hello there i am yash mishra presenting my program which finds out the longest string into the string";
     longestword(str);
 }

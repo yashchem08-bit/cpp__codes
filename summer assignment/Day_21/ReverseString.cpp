@@ -4,7 +4,7 @@
 using namespace std;
 void Reverse(string &str , int i , int j){
     while(i<j){
-        int temp = str[i];
+        char temp = str[i];
         str[i] = str[j];
         str[j] = temp;
         i++;

@@ -22,7 +22,7 @@ int main()
                 count++;
                 if (count >= 2)
                 {
-                    cout << "duplicate elemnet found at index " << j << endl;
+                    cout << "duplicate elemnet found at index " << j <<" and the duplicate is "<<temp<< endl;
                 }
             }
         }
