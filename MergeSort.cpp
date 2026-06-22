@@ -162,55 +162,154 @@
 //     }
 // }
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// using namespace std;
+// void Merge(vector<int> &nums, int low, int mid, int high)
+// {
+//     int left = low;
+//     int right = mid + 1;
+//     vector<int> temp;
+//     while (left <= mid && right <= high)
+//     {
+//         if (nums[left] < nums[right])
+//         {
+//             temp.push_back(nums[left]);
+//             left++;
+//         }
+//         else
+//         {
+//             temp.push_back(nums[right]);
+//             right++;
+//         }
+//     }
+//     while (left <= mid)
+//     {
+//         temp.push_back(nums[left]);
+//         left++;
+//     }
+//     while (right <= high)
+//     {
+//         temp.push_back(nums[right]);
+//         right++;
+//     }
+//     for (int i = low; i <= high; i++)
+//     {
+//         nums[i] = temp[i - low];
+//     }
+// }
+// void merge_sort(vector<int> &nums, int low, int high)
+// {
+//     if (low >= high)
+//     {
+//         return;
+//     }
+//     int mid = (low + high) / 2;
+//     merge_sort(nums, low, mid);
+//     merge_sort(nums, mid + 1, high);
+//     Merge(nums, low, mid, high);
+// }
+// int main()
+// {
+//     vector<int> nums = {5, 4, 2, 6, 1, 2, 3};
+//     int n = nums.size();
+//     int low = 0;
+//     int high = n - 1;
+//     merge_sort(nums, low, high);
+//     for (auto &val : nums)
+//     {
+//         cout << val << " ";
+//     }
+// }
+#include <iostream>
+#include <vector>
 using namespace std;
-void Merge(vector<int> &nums, int low, int mid, int high)
+void Merge(vector<int> &arr, int low, int mid, int high)
 {
     int left = low;
     int right = mid + 1;
     vector<int> temp;
-    while (left >= low && right >= high)
+    while (left <= mid && right <= high)
     {
-        if (nums[left] < nums[right])
+        if (arr[left] < arr[right])
         {
-            temp.push_back(nums[left]);
+            temp.push_back(arr[left]);
             left++;
-        }else{
-            temp.push_back(nums[right]);
+        }
+        else
+        {
+            temp.push_back(arr[right]);
             right++;
         }
     }
-    while(left >= mid +1){
-        temp.push_back(nums[left]);
+    while (left <= mid)
+    {
+        temp.push_back(arr[left]);
         left++;
     }
-    while(right >= high){
-        temp.push_back(nums[right]);
+    while (right <= high)
+    {
+        temp.push_back(arr[right]);
         right++;
     }
-    for(int i = low ;i<= high;i++){
-        nums[i] = temp [i-low];
+    for (int i = low; i <= high; i++)
+    {
+        arr[i] = temp[i - low];
     }
 }
-void merge_sort(vector<int> &nums, int low, int high)
+void merge_sort(vector<int> &arr, int low, int high)
 {
+
     if (low >= high)
     {
         return;
     }
+
     int mid = (low + high) / 2;
-    merge_sort(nums, low, mid);
-    merge_sort(nums, mid + 1, high);
-    Merge(nums, low, mid, high);
+    merge_sort(arr, low, mid);
+    merge_sort(arr, mid + 1, high);
+    Merge(arr, low, mid, high);
+}
+
+int Partition_idx(vector<int> &arr , int low , int high){
+    int i = low ,j = high;
+    int pivot = arr[low];
+    while(i<j){
+        while(arr[i] <= pivot && i <= high-1){
+            i++;
+        }
+        while(arr[j] > pivot && j >= low +1){
+            j--;
+        }
+        if(i < j){
+            swap(arr[i],arr[j]);
+        }
+        
+    }
+    swap(arr[low],arr[j]);
+    return j;
+}
+void Quick_sort(vector<int> arr,int low , int high){
+    if(low <high){
+        int part_idx = Partition_idx(arr,low,high);
+        Quick_sort(arr,low,part_idx-1);
+        Quick_sort(arr,part_idx+1,high);
+    }
 }
 int main()
 {
-    vector<int> nums = {5, 4, 2, 6, 1, 2, 3};
-    int n = nums.size();
+    vector<int> arr = {2, 7, 1, 8};
+    int n = arr.size();
     int low = 0;
     int high = n - 1;
-    merge_sort(nums, low, high);
-    for (auto &val : nums)
+    merge_sort(arr, low, high);
+    for (auto &val : arr)
+    {
+        cout << val << " ";
+        
+    }
+    cout<<endl;
+    Quick_sort(arr, low, high);
+    for (auto &val : arr)
     {
         cout << val << " ";
     }

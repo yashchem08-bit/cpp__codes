@@ -18,6 +18,6 @@ vector<int> Single_number(vector<int> &nums)
 
 int main()
 {
-    vector<int> nums = {1, 2, 1, 3, 2, 5};
+    vector<int> nums = {1, 2, 1, 3, 2, 5,6,6,7,4,3};
     Single_number(nums);
 }

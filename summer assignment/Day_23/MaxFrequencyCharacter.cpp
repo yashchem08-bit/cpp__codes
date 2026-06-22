@@ -23,6 +23,7 @@ int main()
             maxfreq = pr.second;
             result = pr.first;
         }
+       
     }
-    cout << result << " occurs maximum times " << maxfreq << endl;
+     cout << result << " occurs maximum times " << maxfreq << endl;
 }

@@ -18,7 +18,7 @@ void common(string &str1, string &str2)
 }
 int main()
 {
-    string str1 = "hello";
-    string str2 = "hola";
+    string str1 = "yash";
+    string str2 = "yash mishra";
     common(str1, str2);
 }
