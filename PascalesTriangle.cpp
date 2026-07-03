@@ -109,10 +109,10 @@
 using namespace std;
 
 // Function to compute nth row of Pascal's Triangle in O(n)
-vector<long long> getRow(int n) {
-    vector<long long> row(n + 1, 1);
+vector<int> getRow(int n) {
+    vector<int> row(n + 1, 1);
     for (int k = 1; k < n; k++) {
-        row[k] = (row[k - 1] * (n - k + 1)) / k;
+        row[k] = (long long)(row[k - 1] * (n - k + 1)) / k;
     }
     return row;
 }
@@ -122,7 +122,7 @@ int main() {
     cout << "Enter n :: ";
     cin >> n;
 
-    vector<long long> row = getRow(n - 1); // 0-indexed row
+    vector<int> row = getRow(n - 1); // 0-indexed row
     for (auto val : row) cout << val << " ";
     cout << endl;
 
