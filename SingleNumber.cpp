@@ -12,8 +12,7 @@ vector<int> Single_number(vector<int> &nums)
             cout<<val.first<<" ";
         }
     }
-    
-    
+
 }
 
 int main()
