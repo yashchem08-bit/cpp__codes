@@ -8,9 +8,10 @@ int main()
     while (a >= 0 || b >= 0)
     {
         if (a == b)
-        {
-            break;
+        {  
             a = a - b;
+            break;
+            
         }
         else if (b > a)
         {
