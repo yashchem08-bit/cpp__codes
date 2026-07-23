@@ -129,7 +129,7 @@ vector<int> Find_trgt(vector<int> &nums, int target)
 
 int main()
 {
-    vector<int> nums = {2, 2};
+    vector<int> nums = {2, 2,3,3,3,2,4};
     int target = 3;
     vector<int> res = Find_trgt(nums, target);
     for (auto &val : res)
