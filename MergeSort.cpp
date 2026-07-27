@@ -220,97 +220,194 @@
 //         cout << val << " ";
 //     }
 // }
-#include <iostream>
-#include <vector>
+
+
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// void Merge(vector<int> &arr, int low, int mid, int high)
+// {
+//     int left = low;
+//     int right = mid + 1;
+//     vector<int> temp;
+//     while (left <= mid && right <= high)
+//     {
+//         if (arr[left] < arr[right])
+//         {
+//             temp.push_back(arr[left]);
+//             left++;
+//         }
+//         else
+//         {
+//             temp.push_back(arr[right]);
+//             right++;
+//         }
+//     }
+//     while (left <= mid)
+//     {
+//         temp.push_back(arr[left]);
+//         left++;
+//     }
+//     while (right <= high)
+//     {
+//         temp.push_back(arr[right]);
+//         right++;
+//     }
+//     for (int i = low; i <= high; i++)
+//     {
+//         arr[i] = temp[i - low];
+//     }
+// }
+// void merge_sort(vector<int> &arr, int low, int high)
+// {
+
+//     if (low >= high)
+//     {
+//         return;
+//     }
+
+//     int mid = (low + high) / 2;
+//     merge_sort(arr, low, mid);
+//     merge_sort(arr, mid + 1, high);
+//     Merge(arr, low, mid, high);
+// }
+
+// int Partition_idx(vector<int> &arr , int low , int high){
+//     int i = low ,j = high;
+//     int pivot = arr[low];
+//     while(i<j){
+//         while(arr[i] <= pivot && i <= high-1){
+//             i++;
+//         }
+//         while(arr[j] > pivot && j >= low +1){
+//             j--;
+//         }
+//         if(i < j){
+//             swap(arr[i],arr[j]);
+//         }
+        
+//     }
+//     swap(arr[low],arr[j]);
+//     return j;
+// }
+// void Quick_sort(vector<int> arr,int low , int high){
+//     if(low <high){
+//         int part_idx = Partition_idx(arr,low,high);
+//         Quick_sort(arr,low,part_idx-1);
+//         Quick_sort(arr,part_idx+1,high);
+//     }
+// }
+// int main()
+// {
+//     vector<int> arr = {2, 7, 1, 8};
+//     int n = arr.size();
+//     int low = 0;
+//     int high = n - 1;
+//     merge_sort(arr, low, high);
+//     for (auto &val : arr)
+//     {
+//         cout << val << " ";
+        
+//     }
+//     cout<<endl;
+//     Quick_sort(arr, low, high);
+//     for (auto &val : arr)
+//     {
+//         cout << val << " ";
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// void merge(vector<int> &nums , int low , int mid , int high){
+//     int left = low;
+//     int right = mid+1;
+//     vector<int> temp;
+//     while(left <= mid && right <= high){
+//         if(nums[left] < nums[right]){
+//             temp.push_back(nums[left++]);
+//         }else{
+//             temp.push_back(nums[right++]);
+//         }
+//     }
+//     while(left <= mid){
+//         temp.push_back(nums[left++]);
+//     }
+//     while(right <= high){
+//         temp.push_back(nums[right++]);
+//     }
+
+//     for(int i = low ;i<=high;i++){
+//         nums[i] = temp[i-low];
+//     }
+
+// }
+// void merge_sort(vector<int> &nums,int low , int high){
+//     if(low >= high){
+//         return;
+//     }
+//     int mid = (low + high)/2;
+
+//     merge_sort(nums,low,mid);
+//     merge_sort(nums,mid+1,high);
+//     merge(nums,low,mid,high);
+// }
+// int main(){
+//     vector<int> nums = {5,3,1,2,4};
+//     merge_sort(nums,0,nums.size()-1);
+//     for(auto &val : nums){
+//         cout<<val<<" ";
+//     }
+// }
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     vector<int> nums = {5,1,3,4,2,5,4,3};
+//     int n = nums.size();
+//     for(int i = 1 ;i<=n-1;i++){
+//         int j = i;
+//         while( j >= 0 && nums[j] > nums[j-1]){
+//             swap(nums[j],nums[j-1]);
+//             j--;
+//         }
+//     }
+//     for(auto &val : nums){
+//         cout<<val<<" ";
+//     }
+// }
+
+#include<bits/stdc++.h>
 using namespace std;
-void Merge(vector<int> &arr, int low, int mid, int high)
-{
-    int left = low;
-    int right = mid + 1;
-    vector<int> temp;
-    while (left <= mid && right <= high)
-    {
-        if (arr[left] < arr[right])
-        {
-            temp.push_back(arr[left]);
-            left++;
+int main(){
+    vector<int> nums = {5,1,3,4,2,5,4,3};
+    int n = nums.size();
+    for(int i = 0 ;i<n;i++){
+        int min = INT_MAX;
+        int minidx = -1;
+        for(int j = i;j<n;j++){
+            if(nums[j] < min ){
+                min = nums[j];
+                minidx = j;
+            }
         }
-        else
-        {
-            temp.push_back(arr[right]);
-            right++;
-        }
+        swap(nums[i],nums[minidx]);
     }
-    while (left <= mid)
-    {
-        temp.push_back(arr[left]);
-        left++;
-    }
-    while (right <= high)
-    {
-        temp.push_back(arr[right]);
-        right++;
-    }
-    for (int i = low; i <= high; i++)
-    {
-        arr[i] = temp[i - low];
-    }
-}
-void merge_sort(vector<int> &arr, int low, int high)
-{
-
-    if (low >= high)
-    {
-        return;
-    }
-
-    int mid = (low + high) / 2;
-    merge_sort(arr, low, mid);
-    merge_sort(arr, mid + 1, high);
-    Merge(arr, low, mid, high);
-}
-
-int Partition_idx(vector<int> &arr , int low , int high){
-    int i = low ,j = high;
-    int pivot = arr[low];
-    while(i<j){
-        while(arr[i] <= pivot && i <= high-1){
-            i++;
-        }
-        while(arr[j] > pivot && j >= low +1){
-            j--;
-        }
-        if(i < j){
-            swap(arr[i],arr[j]);
-        }
-        
-    }
-    swap(arr[low],arr[j]);
-    return j;
-}
-void Quick_sort(vector<int> arr,int low , int high){
-    if(low <high){
-        int part_idx = Partition_idx(arr,low,high);
-        Quick_sort(arr,low,part_idx-1);
-        Quick_sort(arr,part_idx+1,high);
-    }
-}
-int main()
-{
-    vector<int> arr = {2, 7, 1, 8};
-    int n = arr.size();
-    int low = 0;
-    int high = n - 1;
-    merge_sort(arr, low, high);
-    for (auto &val : arr)
-    {
-        cout << val << " ";
-        
-    }
-    cout<<endl;
-    Quick_sort(arr, low, high);
-    for (auto &val : arr)
-    {
-        cout << val << " ";
+    for(auto &val : nums){
+        cout<<val<<" ";
     }
 }

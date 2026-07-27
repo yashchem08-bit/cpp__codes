@@ -26,9 +26,26 @@
 
 #include<bits/stdc++.h>     // using two pointer
 using namespace std;
-int Remove_Duplicate(vector<int> &nums){
+void Remove_Duplicate(vector<int> &nums){
     int n = nums.size();
-    
+    vector<int> ans;
+    int count = 1;
+    int i = 1 ;
+    ans.push_back(nums[0]);
+    while(i < n){
+        int j = nums[i-1];
+        if(nums[i] == j){
+            i++;
+        }else{
+            count++;
+            ans.push_back(nums[i]);
+            i++;
+        }
+        
+    }
+    for(auto &val : ans){
+        cout<<val<<"  ";
+    }
 }
 int main(){
     vector<int> nums = {0,0,1,1,1,2,2,3,3,4};
