@@ -12,6 +12,7 @@ using namespace std;
         b = New;
         
     }
+    cout<<New<<endl;
    
 }
 int main(){
