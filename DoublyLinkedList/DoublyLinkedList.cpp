@@ -16,6 +16,7 @@ public:
         next = NULL;
         prev = NULL;
     }
+    
 };
 node* array_DLL(vector<int> &arr){
     node* head = new node(arr[0]);
@@ -23,6 +24,7 @@ node* array_DLL(vector<int> &arr){
     for(int i = 1;i<arr.size();i++){
         node* temp = new node(arr[i],NULL,pre);
         pre->next = temp;
+        temp->prev = pre;
         pre = temp;
     }
     return head;
